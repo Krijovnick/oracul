@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Cormorant_Garamond, Geist, Geist_Mono } from 'next/font/google';
-import { Header } from '@/widgets/header';
 import './globals.css';
 
 const geistSans = Geist({
@@ -34,10 +33,7 @@ export default function RootLayout({
       lang="ru"
       className={`${geistSans.variable} ${geistMono.variable} ${displayFont.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col bg-zinc-50 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-50">
-        <Header />
-        <main className="flex flex-1 flex-col">{children}</main>
-      </body>
+      <body className="min-h-full bg-black text-white">{children}</body>
     </html>
   );
 }

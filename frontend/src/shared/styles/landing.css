@@ -82,3 +82,15 @@
     rgba(212, 175, 55, 0.04) 9px
   );
 }
+
+.oracle-subtitle {
+  font-size: 0.875rem;
+  line-height: 1.625;
+  color: rgb(255 255 255 / 0.55);
+}
+
+@media (min-width: 768px) {
+  .oracle-subtitle {
+    font-size: 1rem;
+  }
+}

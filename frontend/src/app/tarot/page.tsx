@@ -1,5 +1,6 @@
-import { TarotPage } from '@/screens/tarot';
+import { redirect } from 'next/navigation';
+import { routes } from '@/shared/config/routes';
 
 export default function Page() {
-  return <TarotPage />;
+  redirect(routes.home);
 }

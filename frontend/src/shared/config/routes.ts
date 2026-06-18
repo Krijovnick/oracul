@@ -1,16 +1,13 @@
 export const routes = {
   home: '/',
-  tarot: '/tarot',
   dreams: '/dreams',
+  spreads: {
+    yesNo: '/spreads/yes-no',
+    cardOfDay: '/spreads/card-of-day',
+  },
 } as const;
 
-export const navLinks = [
-  { href: routes.home, label: 'Главная' },
-  { href: routes.tarot, label: 'Таро' },
-  { href: routes.dreams, label: 'Сны' },
-] as const;
-
-export const appNavLinks = [
-  { href: routes.tarot, label: 'Таро' },
+export const landingNavLinks = [
+  { href: routes.home, label: 'Таро' },
   { href: routes.dreams, label: 'Сны' },
 ] as const;

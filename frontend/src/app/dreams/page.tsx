@@ -1,5 +1,5 @@
-import { DreamsPage } from '@/screens/dreams';
+import { SpreadPlaceholderPage } from '@/screens/spread';
 
 export default function Page() {
-  return <DreamsPage />;
+  return <SpreadPlaceholderPage title="Сны" />;
 }
