@@ -1,0 +1,84 @@
+.gold-title {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: linear-gradient(
+    180deg,
+    #fff8dc 0%,
+    #f5e6a8 20%,
+    #d4af37 50%,
+    #b8962e 75%,
+    #8b6914 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 12px rgba(212, 175, 55, 0.45));
+}
+
+.gold-button {
+  padding: 0.85rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #1a1200;
+  background: linear-gradient(135deg, #f5e6a8 0%, #d4af37 50%, #c9a227 100%);
+  box-shadow:
+    0 0 20px rgba(212, 175, 55, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: box-shadow 0.3s, transform 0.2s;
+}
+
+.gold-button:hover {
+  box-shadow:
+    0 0 32px rgba(212, 175, 55, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transform: translateY(-1px);
+}
+
+.frame-border {
+  border: 1.5px solid rgba(212, 175, 55, 0.7);
+  box-shadow:
+    0 0 30px rgba(212, 175, 55, 0.25),
+    0 0 60px rgba(212, 175, 55, 0.1),
+    inset 0 0 20px rgba(212, 175, 55, 0.05);
+}
+
+.frame-border::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 0.75rem;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.stars {
+  background-image:
+    radial-gradient(1px 1px at 10% 20%, rgba(212, 175, 55, 0.8), transparent),
+    radial-gradient(1px 1px at 30% 65%, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1.5px 1.5px at 50% 10%, rgba(212, 175, 55, 0.7), transparent),
+    radial-gradient(1px 1px at 70% 40%, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 85% 75%, rgba(212, 175, 55, 0.6), transparent),
+    radial-gradient(1px 1px at 15% 85%, rgba(255, 255, 255, 0.4), transparent),
+    radial-gradient(1.5px 1.5px at 60% 90%, rgba(212, 175, 55, 0.7), transparent),
+    radial-gradient(1px 1px at 90% 15%, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 45% 50%, rgba(212, 175, 55, 0.5), transparent),
+    radial-gradient(1px 1px at 25% 35%, rgba(255, 255, 255, 0.3), transparent);
+}
+
+.card-back {
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.6),
+    inset 0 0 30px rgba(212, 175, 55, 0.05);
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 8px,
+    rgba(212, 175, 55, 0.04) 8px,
+    rgba(212, 175, 55, 0.04) 9px
+  );
+}
