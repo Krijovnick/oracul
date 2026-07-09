@@ -92,6 +92,11 @@ const pt: Messages = {
     tarotFallbackTitle: 'Tiragem de Tarot',
     dreamFallbackTitle: 'Interpretação de sonho',
   },
+  footer: {
+    contact: 'Contactar os desenvolvedores',
+    disclaimer: 'Apenas para fins de entretenimento. Não substitui aconselhamento profissional.',
+    copyright: '© {year} O Seu Oráculo Pessoal',
+  },
   spreads: spreadMessages as Messages['spreads'],
   dreamDictionaries: dreamDictionaryMessages as Messages['dreamDictionaries'],
   cards: {

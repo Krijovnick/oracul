@@ -10,6 +10,7 @@ const rootDir = path.resolve(process.cwd(), '..');
 const envFile = fs.readFileSync(path.join(rootDir, '.env'), 'utf8');
 const port = envFile.match(/^PORT=(\d+)/m)?.[1];
 const frontendUrl = envFile.match(/^FRONTEND_URL=(.+)/m)?.[1]?.trim();
+const contactEmail = envFile.match(/^NEXT_PUBLIC_CONTACT_EMAIL=(.+)/m)?.[1]?.trim();
 
 if (!port) {
   throw new Error('PORT is not set in .env');
@@ -22,6 +23,7 @@ const nextConfig: NextConfig = {
   env: {
     FRONTEND_URL: siteUrl,
     NEXT_PUBLIC_SITE_URL: siteUrl,
+    ...(contactEmail ? { NEXT_PUBLIC_CONTACT_EMAIL: contactEmail } : {}),
   },
   async rewrites() {
     return [

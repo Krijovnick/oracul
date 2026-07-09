@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { SiteFooter } from '@/widgets/site-footer';
 
 interface OraclePageShellProps {
   children: React.ReactNode;
@@ -6,7 +7,7 @@ interface OraclePageShellProps {
 
 export function OraclePageShell({ children }: OraclePageShellProps) {
   return (
-    <div className="landing-page relative min-h-screen bg-black text-white">
+    <div className="landing-page relative flex min-h-screen flex-col bg-black text-white">
       <div className="pointer-events-none fixed inset-0 -z-10" aria-hidden="true">
         <Image
           src="/images/moon-bg.png"
@@ -22,7 +23,8 @@ export function OraclePageShell({ children }: OraclePageShellProps) {
         <div className="stars absolute inset-0" />
       </div>
 
-      <div className="relative z-10">{children}</div>
+      <div className="relative z-10 flex flex-1 flex-col">{children}</div>
+      <SiteFooter />
     </div>
   );
 }

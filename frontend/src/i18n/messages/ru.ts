@@ -92,6 +92,11 @@ const ru: Messages = {
     tarotFallbackTitle: 'Расклад Таро',
     dreamFallbackTitle: 'Толкование сна',
   },
+  footer: {
+    contact: 'Связаться с разработчиками',
+    disclaimer: 'Только в развлекательных целях. Не заменяет профессиональную консультацию.',
+    copyright: '© {year} Твой Личный Оракул',
+  },
   spreads: spreadMessages as Messages['spreads'],
   dreamDictionaries: dreamDictionaryMessages as Messages['dreamDictionaries'],
   cards: {

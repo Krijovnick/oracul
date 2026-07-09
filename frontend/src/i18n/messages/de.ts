@@ -92,6 +92,11 @@ const de: Messages = {
     tarotFallbackTitle: 'Tarot-Legung',
     dreamFallbackTitle: 'Traumdeutung',
   },
+  footer: {
+    contact: 'Entwickler kontaktieren',
+    disclaimer: 'Nur zu Unterhaltungszwecken. Kein Ersatz für professionelle Beratung.',
+    copyright: '© {year} Ihr Persönliches Orakel',
+  },
   spreads: spreadMessages as Messages['spreads'],
   dreamDictionaries: dreamDictionaryMessages as Messages['dreamDictionaries'],
   cards: {

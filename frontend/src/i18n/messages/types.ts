@@ -100,6 +100,11 @@ export interface Messages {
     tarotFallbackTitle: string;
     dreamFallbackTitle: string;
   };
+  footer: {
+    contact: string;
+    disclaimer: string;
+    copyright: string;
+  };
   spreads: Record<SpreadId, SpreadMessages>;
   dreamDictionaries: Record<DreamDictionaryId, DreamDictionaryMessages>;
   cards: {

@@ -2,6 +2,11 @@ export function getSiteUrlFromEnv(): string {
   return process.env.FRONTEND_URL ?? process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3001';
 }
 
+export function getContactEmail(): string | undefined {
+  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim();
+  return email || undefined;
+}
+
 export async function getSiteUrl(): Promise<string> {
   const { headers } = await import('next/headers');
   const headerStore = await headers();

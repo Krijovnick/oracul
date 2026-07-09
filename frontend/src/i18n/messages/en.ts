@@ -92,6 +92,11 @@ const en: Messages = {
     tarotFallbackTitle: 'Tarot reading',
     dreamFallbackTitle: 'Dream interpretation',
   },
+  footer: {
+    contact: 'Contact',
+    disclaimer: 'For entertainment purposes only. Not a substitute for professional advice.',
+    copyright: '© {year} Your Personal Oracle',
+  },
   spreads: spreadMessages as Messages['spreads'],
   dreamDictionaries: dreamDictionaryMessages as Messages['dreamDictionaries'],
   cards: {

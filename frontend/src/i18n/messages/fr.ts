@@ -92,6 +92,11 @@ const fr: Messages = {
     tarotFallbackTitle: 'Tirage de Tarot',
     dreamFallbackTitle: 'Interprétation de rêve',
   },
+  footer: {
+    contact: 'Contacter les développeurs',
+    disclaimer: 'À titre de divertissement uniquement. Ne remplace pas un avis professionnel.',
+    copyright: '© {year} Votre Oracle Personnel',
+  },
   spreads: spreadMessages as Messages['spreads'],
   dreamDictionaries: dreamDictionaryMessages as Messages['dreamDictionaries'],
   cards: {
