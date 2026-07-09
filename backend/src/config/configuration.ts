@@ -1,15 +1,17 @@
+import { optionalEnv, requiredEnv, requiredIntEnv } from './env';
+
 export default () => ({
-  port: parseInt(process.env.PORT as string, 10),
-  nodeEnv: process.env.NODE_ENV as string,
-  frontendUrl: process.env.FRONTEND_URL as string,
+  port: requiredIntEnv('PORT'),
+  nodeEnv: optionalEnv('NODE_ENV', 'development'),
+  frontendUrl: requiredEnv('FRONTEND_URL'),
   database: {
-    host: process.env.DB_HOST as string,
-    port: parseInt(process.env.DB_PORT as string, 10),
-    username: process.env.DB_USERNAME as string,
-    password: process.env.DB_PASSWORD as string,
-    database: process.env.DB_DATABASE as string,
+    host: requiredEnv('DB_HOST'),
+    port: requiredIntEnv('DB_PORT'),
+    username: requiredEnv('DB_USERNAME'),
+    password: requiredEnv('DB_PASSWORD'),
+    database: requiredEnv('DB_DATABASE'),
   },
   deepseek: {
-    apiKey: process.env.DEEPSEEK_API_KEY as string,
+    apiKey: requiredEnv('DEEPSEEK_API_KEY'),
   },
 });
