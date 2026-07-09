@@ -1,16 +1,15 @@
 export default () => ({
-  port: parseInt(process.env.PORT ?? '3000', 10),
-  nodeEnv: process.env.NODE_ENV ?? 'development',
-  frontendUrl: process.env.FRONTEND_URL ?? 'http://localhost:3001',
+  port: parseInt(process.env.PORT as string, 10),
+  nodeEnv: process.env.NODE_ENV as string,
+  frontendUrl: process.env.FRONTEND_URL as string,
   database: {
-    host: process.env.DB_HOST ?? 'localhost',
-    port: parseInt(process.env.DB_PORT ?? '5432', 10),
-    username: process.env.DB_USERNAME ?? 'tarot',
-    password: process.env.DB_PASSWORD ?? 'tarot',
-    database: process.env.DB_DATABASE ?? 'tarot',
+    host: process.env.DB_HOST as string,
+    port: parseInt(process.env.DB_PORT as string, 10),
+    username: process.env.DB_USERNAME as string,
+    password: process.env.DB_PASSWORD as string,
+    database: process.env.DB_DATABASE as string,
   },
-  redis: {
-    host: process.env.REDIS_HOST ?? 'localhost',
-    port: parseInt(process.env.REDIS_PORT ?? '6379', 10),
+  deepseek: {
+    apiKey: process.env.DEEPSEEK_API_KEY as string,
   },
 });

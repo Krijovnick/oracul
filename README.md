@@ -7,7 +7,7 @@
 | Часть | Технологии |
 |-------|------------|
 | Frontend | Next.js, TypeScript, Zustand, Tailwind CSS, Motion (FSD) |
-| Backend | NestJS, TypeScript, PostgreSQL, Redis |
+| Backend | NestJS, TypeScript, PostgreSQL |
 
 ## Быстрый старт
 
@@ -25,7 +25,7 @@ cp backend/.env.example backend/.env
 cp frontend/.env.example frontend/.env.local
 ```
 
-### 3. База данных и Redis
+### 3. База данных
 
 Убедитесь, что **Docker Desktop** запущен, затем:
 
@@ -33,7 +33,7 @@ cp frontend/.env.example frontend/.env.local
 npm run docker:up
 ```
 
-PostgreSQL и Redis поднимаются на портах **5433** и **6380** (чтобы не конфликтовать с локальными сервисами на 5432/6379).
+PostgreSQL поднимается на порту **5433** (чтобы не конфликтовать с локальными сервисами на 5432).
 
 ### 4. Запуск (фронт + бек)
 
@@ -42,8 +42,7 @@ npm run dev
 ```
 
 - Frontend: http://localhost:3001
-- Backend API: http://localhost:3000/api
-- Health check: http://localhost:3000/api/health
+- Backend API: http://localhost:3003/api
 
 ## Структура
 
@@ -60,9 +59,8 @@ npm run dev
 │   └── src/
 │       ├── tarot/
 │       ├── dreams/
-│       ├── health/
-│       ├── database/
-│       └── redis/
+│       ├── shares/
+│       └── database/
 └── docker-compose.yml
 ```
 

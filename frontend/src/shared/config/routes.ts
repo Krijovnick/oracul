@@ -1,13 +1,18 @@
 export const routes = {
   home: '/',
+  tarot: '/tarot',
   dreams: '/dreams',
-  spreads: {
-    yesNo: '/spreads/yes-no',
-    cardOfDay: '/spreads/card-of-day',
-  },
+  history: '/history',
 } as const;
 
-export const landingNavLinks = [
-  { href: routes.home, label: 'Таро' },
-  { href: routes.dreams, label: 'Сны' },
-] as const;
+export function spreadRoute(id: string): string {
+  return `/spreads/${id}`;
+}
+
+export function dreamDictionaryRoute(id: string): string {
+  return `/dreams/${id}`;
+}
+
+export function shareRoute(id: string): string {
+  return `/share/${id}`;
+}

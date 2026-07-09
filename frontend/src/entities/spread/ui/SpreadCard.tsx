@@ -1,5 +1,8 @@
+'use client';
+
 import Image from 'next/image';
-import Link from 'next/link';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/routing';
 
 export interface SpreadCardProps {
   imageSrc: string;
@@ -16,8 +19,10 @@ export function SpreadCard({
   title,
   description,
   href,
-  buttonLabel = 'Начать',
+  buttonLabel,
 }: SpreadCardProps) {
+  const t = useTranslations('tarot');
+
   return (
     <article className="flex flex-col items-center text-center">
       <div className="frame-border relative mb-5 w-32 overflow-hidden rounded-xl sm:w-36">
@@ -35,7 +40,7 @@ export function SpreadCard({
       <p className="oracle-subtitle mb-6 max-w-xs">{description}</p>
 
       <Link href={href} className="gold-button">
-        {buttonLabel}
+        {buttonLabel ?? t('start')}
       </Link>
     </article>
   );

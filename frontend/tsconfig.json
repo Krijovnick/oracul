@@ -20,9 +20,11 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
+      "@/i18n/*": ["./src/i18n/*"],
       "@/shared/*": ["./src/shared/*"],
       "@/entities/*": ["./src/entities/*"],
       "@/widgets/*": ["./src/widgets/*"],
+      "@/features/*": ["./src/features/*"],
       "@/screens/*": ["./src/screens/*"]
     }
   },

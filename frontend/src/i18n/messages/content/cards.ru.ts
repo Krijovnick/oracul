@@ -1,0 +1,48 @@
+export const cardNames = {
+  fool: 'Шут',
+  magician: 'Маг',
+  'high-priestess': 'Верховная Жрица',
+  empress: 'Императрица',
+  emperor: 'Император',
+  hierophant: 'Иерофант',
+  lovers: 'Влюблённые',
+  chariot: 'Колесница',
+  strength: 'Сила',
+  hermit: 'Отшельник',
+  'wheel-of-fortune': 'Колесо Фортуны',
+  justice: 'Справедливость',
+  'hanged-man': 'Повешенный',
+  death: 'Смерть',
+  temperance: 'Умеренность',
+  devil: 'Дьявол',
+  tower: 'Башня',
+  star: 'Звезда',
+  moon: 'Луна',
+  sun: 'Солнце',
+  judgement: 'Суд',
+  world: 'Мир',
+} as const;
+
+export const suits = {
+  wands: 'Жезлов',
+  cups: 'Кубков',
+  swords: 'Мечей',
+  pentacles: 'Пентаклей',
+} as const;
+
+export const ranks = {
+  ace: 'Туз',
+  '2': 'Двойка',
+  '3': 'Тройка',
+  '4': 'Четвёрка',
+  '5': 'Пятёрка',
+  '6': 'Шестёрка',
+  '7': 'Семёрка',
+  '8': 'Восьмёрка',
+  '9': 'Девятка',
+  '10': 'Десятка',
+  page: 'Паж',
+  knight: 'Рыцарь',
+  queen: 'Королева',
+  king: 'Король',
+} as const;

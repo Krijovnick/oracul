@@ -1,0 +1,48 @@
+export const cardNames = {
+  fool: 'O Louco',
+  magician: 'O Mago',
+  'high-priestess': 'A Sacerdotisa',
+  empress: 'A Imperatriz',
+  emperor: 'O Imperador',
+  hierophant: 'O Hierofante',
+  lovers: 'Os Enamorados',
+  chariot: 'O Carro',
+  strength: 'A Força',
+  hermit: 'O Eremita',
+  'wheel-of-fortune': 'A Roda da Fortuna',
+  justice: 'A Justiça',
+  'hanged-man': 'O Enforcado',
+  death: 'A Morte',
+  temperance: 'A Temperança',
+  devil: 'O Diabo',
+  tower: 'A Torre',
+  star: 'A Estrela',
+  moon: 'A Lua',
+  sun: 'O Sol',
+  judgement: 'O Julgamento',
+  world: 'O Mundo',
+} as const;
+
+export const suits = {
+  wands: 'Paus',
+  cups: 'Copas',
+  swords: 'Espadas',
+  pentacles: 'Ouros',
+} as const;
+
+export const ranks = {
+  ace: 'Ás',
+  '2': 'Dois',
+  '3': 'Três',
+  '4': 'Quatro',
+  '5': 'Cinco',
+  '6': 'Seis',
+  '7': 'Sete',
+  '8': 'Oito',
+  '9': 'Nove',
+  '10': 'Dez',
+  page: 'Pajem',
+  knight: 'Cavaleiro',
+  queen: 'Rainha',
+  king: 'Rei',
+} as const;
