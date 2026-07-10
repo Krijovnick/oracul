@@ -105,6 +105,11 @@ export interface Messages {
     disclaimer: string;
     copyright: string;
   };
+  notFound: {
+    title: string;
+    description: string;
+    backHome: string;
+  };
   spreads: Record<SpreadId, SpreadMessages>;
   dreamDictionaries: Record<DreamDictionaryId, DreamDictionaryMessages>;
   cards: {

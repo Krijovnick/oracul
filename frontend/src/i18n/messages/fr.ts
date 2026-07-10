@@ -97,6 +97,11 @@ const fr: Messages = {
     disclaimer: 'À titre de divertissement uniquement. Ne remplace pas un avis professionnel.',
     copyright: '© {year} Votre Oracle Personnel',
   },
+  notFound: {
+    title: 'Page introuvable',
+    description: 'La page que vous recherchez n\'existe pas ou a été déplacée.',
+    backHome: 'Retour à l\'accueil',
+  },
   spreads: spreadMessages as Messages['spreads'],
   dreamDictionaries: dreamDictionaryMessages as Messages['dreamDictionaries'],
   cards: {

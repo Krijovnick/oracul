@@ -97,6 +97,11 @@ const pt: Messages = {
     disclaimer: 'Apenas para fins de entretenimento. Não substitui aconselhamento profissional.',
     copyright: '© {year} O Seu Oráculo Pessoal',
   },
+  notFound: {
+    title: 'Página não encontrada',
+    description: 'A página que procura não existe ou foi movida.',
+    backHome: 'Voltar ao início',
+  },
   spreads: spreadMessages as Messages['spreads'],
   dreamDictionaries: dreamDictionaryMessages as Messages['dreamDictionaries'],
   cards: {

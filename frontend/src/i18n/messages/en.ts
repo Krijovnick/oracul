@@ -97,6 +97,11 @@ const en: Messages = {
     disclaimer: 'For entertainment purposes only. Not a substitute for professional advice.',
     copyright: '© {year} Your Personal Oracle',
   },
+  notFound: {
+    title: 'Page not found',
+    description: 'The page you are looking for does not exist or has been moved.',
+    backHome: 'Back to home',
+  },
   spreads: spreadMessages as Messages['spreads'],
   dreamDictionaries: dreamDictionaryMessages as Messages['dreamDictionaries'],
   cards: {

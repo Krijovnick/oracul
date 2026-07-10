@@ -97,6 +97,11 @@ const ru: Messages = {
     disclaimer: 'Только в развлекательных целях. Не заменяет профессиональную консультацию.',
     copyright: '© {year} Твой Личный Оракул',
   },
+  notFound: {
+    title: 'Страница не найдена',
+    description: 'Такой страницы не существует или она была перемещена.',
+    backHome: 'На главную',
+  },
   spreads: spreadMessages as Messages['spreads'],
   dreamDictionaries: dreamDictionaryMessages as Messages['dreamDictionaries'],
   cards: {
