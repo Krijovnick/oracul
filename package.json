@@ -12,7 +12,8 @@
     "dev:frontend": "npm run dev -w frontend",
     "build": "npm run build -w backend && npm run build -w frontend",
     "docker:up": "docker compose up -d",
-    "docker:down": "docker compose down"
+    "docker:down": "docker compose down",
+    "migration:run": "npm run migration:run -w backend"
   },
   "devDependencies": {
     "concurrently": "^9.2.1"
