@@ -1,14 +1,22 @@
 import { config as loadEnv } from 'dotenv';
 import createNextIntlPlugin from 'next-intl/plugin';
 import type { NextConfig } from 'next';
+import fs from 'fs';
 import path from 'path';
 
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
 const rootDir = path.resolve(process.cwd(), '..');
+const rootEnvPath = path.join(rootDir, '.env');
+const localEnvPath = path.join(process.cwd(), '.env.local');
 
-loadEnv({ path: path.join(rootDir, '.env') });
-loadEnv({ path: path.join(process.cwd(), '.env.local') });
+if (fs.existsSync(rootEnvPath)) {
+  loadEnv({ path: rootEnvPath });
+}
+if (fs.existsSync(localEnvPath)) {
+  loadEnv({ path: localEnvPath });
+}
+
 const backendPort = process.env.PORT ?? '3003';
 const backendUrl = process.env.BACKEND_URL ?? `http://localhost:${backendPort}`;
 const siteUrl =
@@ -32,9 +40,9 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  turbopack: {
-    root: rootDir,
-  },
+  ...(process.env.NODE_ENV !== 'production' && fs.existsSync(path.join(rootDir, 'package.json'))
+    ? { turbopack: { root: rootDir } }
+    : {}),
 };
 
 export default withNextIntl(nextConfig);
