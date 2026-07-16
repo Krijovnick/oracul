@@ -19,12 +19,26 @@ if (fs.existsSync(localEnvPath)) {
   loadEnv({ path: localEnvPath });
 }
 
+function withProtocol(value: string, fallbackProtocol = 'https'): string {
+  const trimmed = value.trim();
+  if (/^https?:\/\//i.test(trimmed)) {
+    return trimmed;
+  }
+  if (trimmed.startsWith('localhost') || trimmed.startsWith('127.0.0.1')) {
+    return `http://${trimmed}`;
+  }
+  return `${fallbackProtocol}://${trimmed}`;
+}
+
 const backendPort = process.env.PORT ?? '3003';
-const backendUrl = process.env.BACKEND_URL ?? `http://localhost:${backendPort}`;
-const siteUrl =
+const backendUrl = withProtocol(
+  process.env.BACKEND_URL ?? `http://localhost:${backendPort}`,
+);
+const siteUrl = withProtocol(
   process.env.NEXT_PUBLIC_SITE_URL ??
-  process.env.FRONTEND_URL ??
-  'http://localhost:3001';
+    process.env.FRONTEND_URL ??
+    'http://localhost:3001',
+);
 const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim();
 
 const nextConfig: NextConfig = {

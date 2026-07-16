@@ -1,5 +1,24 @@
+function normalizeSiteUrl(value: string): string {
+  const trimmed = value.trim().replace(/\/+$/, '');
+
+  if (!trimmed) {
+    return 'http://localhost:3001';
+  }
+
+  if (/^https?:\/\//i.test(trimmed)) {
+    return trimmed;
+  }
+
+  return `https://${trimmed}`;
+}
+
 export function getSiteUrlFromEnv(): string {
-  return process.env.FRONTEND_URL ?? process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3001';
+  const raw =
+    process.env.FRONTEND_URL ??
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    'http://localhost:3001';
+
+  return normalizeSiteUrl(raw);
 }
 
 export function getContactEmail(): string | undefined {
@@ -25,6 +44,6 @@ export function getSharePath(shareId: string, locale: string): string {
 }
 
 export function getShareUrl(shareId: string, locale: string, origin?: string): string {
-  const base = origin ?? getSiteUrlFromEnv();
+  const base = origin ? normalizeSiteUrl(origin) : getSiteUrlFromEnv();
   return `${base}${getSharePath(shareId, locale)}`;
 }
