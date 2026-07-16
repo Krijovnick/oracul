@@ -3,12 +3,14 @@ import createNextIntlPlugin from 'next-intl/plugin';
 import type { NextConfig } from 'next';
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
-const rootDir = path.resolve(process.cwd(), '..');
+const appRoot = path.dirname(fileURLToPath(import.meta.url));
+const rootDir = path.resolve(appRoot, '..');
 const rootEnvPath = path.join(rootDir, '.env');
-const localEnvPath = path.join(process.cwd(), '.env.local');
+const localEnvPath = path.join(appRoot, '.env.local');
 
 if (fs.existsSync(rootEnvPath)) {
   loadEnv({ path: rootEnvPath });
@@ -40,9 +42,9 @@ const nextConfig: NextConfig = {
       },
     ];
   },
-  ...(process.env.NODE_ENV !== 'production' && fs.existsSync(path.join(rootDir, 'package.json'))
-    ? { turbopack: { root: rootDir } }
-    : {}),
+  turbopack: {
+    root: rootDir,
+  },
 };
 
 export default withNextIntl(nextConfig);
