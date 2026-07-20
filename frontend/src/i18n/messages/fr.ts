@@ -6,7 +6,7 @@ import { cardNames, ranks, suits } from './content/cards.fr';
 const fr: Messages = {
   metadata: {
     title: 'Votre Oracle Personnel',
-    description: 'Tirages de cartes de Tarot et interprétation des rêves',
+    description: 'Tirages de Tarot en ligne et interprétation des rêves',
   },
   nav: {
     home: 'Accueil',

@@ -6,7 +6,7 @@ import { cardNames, ranks, suits } from './content/cards.en';
 const en: Messages = {
   metadata: {
     title: 'Your Personal Oracle',
-    description: 'Tarot card readings and dream interpretation',
+    description: 'Online tarot card readings and dream interpretation',
   },
   nav: {
     home: 'Home',

@@ -6,7 +6,7 @@ import { cardNames, ranks, suits } from './content/cards.ru';
 const ru: Messages = {
   metadata: {
     title: 'Твой Личный Оракул',
-    description: 'Гадание на картах Таро и расшифровка снов',
+    description: 'Онлайн-гадание на картах Таро и расшифровка снов',
   },
   nav: {
     home: 'Главная',

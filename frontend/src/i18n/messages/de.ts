@@ -6,7 +6,7 @@ import { cardNames, ranks, suits } from './content/cards.de';
 const de: Messages = {
   metadata: {
     title: 'Ihr Persönliches Orakel',
-    description: 'Tarotkarten-Legungen und Traumdeutung',
+    description: 'Online-Tarotlegungen und Traumdeutung',
   },
   nav: {
     home: 'Startseite',

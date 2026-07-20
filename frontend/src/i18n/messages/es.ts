@@ -6,7 +6,7 @@ import { cardNames, ranks, suits } from './content/cards.es';
 const es: Messages = {
   metadata: {
     title: 'Tu Oráculo Personal',
-    description: 'Lecturas de cartas del Tarot e interpretación de sueños',
+    description: 'Lecturas de Tarot online e interpretación de sueños',
   },
   nav: {
     home: 'Inicio',
