@@ -17,7 +17,7 @@ export function HomeSections() {
     {
       title: t('tarotTitle'),
       description: t('tarotDescription'),
-      imageSrc: '/images/spread-celtic-cross.png',
+      imageSrc: '/images/home-tarot.png',
       imageAlt: t('tarotImageAlt'),
       href: '/tarot',
       buttonLabel: t('tarotButton'),
@@ -25,7 +25,7 @@ export function HomeSections() {
     {
       title: t('dreamsTitle'),
       description: t('dreamsDescription'),
-      imageSrc: '/images/dream-dictionary.png',
+      imageSrc: '/images/home-dreams.png',
       imageAlt: t('dreamsImageAlt'),
       href: '/dreams',
       buttonLabel: t('dreamsButton'),

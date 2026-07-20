@@ -3,7 +3,7 @@ import { getSpreadById } from '@/shared/config/spreads';
 import { getDreamDictionaryById } from '@/shared/config/dream-dictionaries';
 import type { Messages } from '@/i18n/messages/types';
 
-const DREAM_OG_IMAGE = '/images/dream-dictionary.png';
+const DREAM_OG_IMAGE = '/images/home-dreams.png';
 
 export function getShareOgImage(share: SharedReading, messages: Messages): string {
   if (share.type === 'tarot') {

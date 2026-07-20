@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     path: routes.dreams,
     title: `${messages.dreams.dictionariesTitle} | ${messages.metadata.title}`,
     description: messages.home.dreamsDescription,
-    image: '/images/dream-dictionary.png',
+    image: '/images/home-dreams.png',
   });
 }
 
@@ -47,7 +47,7 @@ export default async function Page({ params }: PageProps) {
             path: routes.dreams,
             siteName: messages.metadata.title,
             origin,
-            image: '/images/dream-dictionary.png',
+            image: '/images/home-dreams.png',
           }),
           buildBreadcrumbJsonLd(
             [
