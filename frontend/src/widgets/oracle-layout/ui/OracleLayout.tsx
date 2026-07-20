@@ -9,7 +9,7 @@ export function OracleLayout({ children }: OracleLayoutProps) {
   return (
     <OraclePageShell>
       <LandingNav />
-      {children}
+      <main className="flex flex-1 flex-col">{children}</main>
     </OraclePageShell>
   );
 }

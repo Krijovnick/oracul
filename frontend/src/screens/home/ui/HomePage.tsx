@@ -1,12 +1,12 @@
-import { OraclePageShell } from '@/shared/ui/oracle-page-shell';
+import { OracleLayout } from '@/widgets/oracle-layout';
 import { HomeSections } from '@/widgets/home-sections';
 import { LandingHero } from '@/widgets/landing-hero';
 
 export function HomePage() {
   return (
-    <OraclePageShell>
+    <OracleLayout>
       <LandingHero />
       <HomeSections />
-    </OraclePageShell>
+    </OracleLayout>
   );
 }
