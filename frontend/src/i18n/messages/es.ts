@@ -13,6 +13,9 @@ const es: Messages = {
     tarot: 'Tarot',
     dreams: 'Sueños',
     history: 'Historial',
+    language: 'Idioma',
+    menuOpen: 'Abrir menú',
+    menuClose: 'Cerrar menú',
   },
   history: {
     title: 'Tus lecturas',

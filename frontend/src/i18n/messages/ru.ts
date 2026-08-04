@@ -13,6 +13,9 @@ const ru: Messages = {
     tarot: 'Таро',
     dreams: 'Сонник',
     history: 'История',
+    language: 'Язык',
+    menuOpen: 'Открыть меню',
+    menuClose: 'Закрыть меню',
   },
   history: {
     title: 'Ваши толкования',

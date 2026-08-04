@@ -27,6 +27,9 @@ export interface Messages {
     tarot: string;
     dreams: string;
     history: string;
+    language: string;
+    menuOpen: string;
+    menuClose: string;
   };
   history: {
     title: string;
