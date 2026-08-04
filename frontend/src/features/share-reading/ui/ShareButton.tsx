@@ -4,6 +4,7 @@ import { useCallback, useState } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import type { Locale } from '@/i18n/locales';
 import { getShareUrl } from '@/shared/config/site';
+import { AnalyticsEvents, trackError, trackEvent } from '@/shared/lib/analytics';
 import { createShare } from '../api/share-reading';
 import type { CreateSharePayload } from '../model/types';
 
@@ -22,14 +23,17 @@ export function ShareButton({ payload }: ShareButtonProps) {
   const handleOpen = useCallback(async () => {
     setIsLoading(true);
     setHasError(false);
+    trackEvent(AnalyticsEvents.shareOpen, { type: payload.type });
 
     try {
       const { id } = await createShare(payload);
       const publicOrigin = process.env.NEXT_PUBLIC_SITE_URL;
       setShareUrl(getShareUrl(id, locale, publicOrigin || window.location.origin));
       setCopyStatus('idle');
-    } catch {
+    } catch (error) {
       setHasError(true);
+      trackEvent(AnalyticsEvents.shareError, { type: payload.type });
+      trackError(error, { source: 'share', type: payload.type });
       window.setTimeout(() => setHasError(false), 2500);
     } finally {
       setIsLoading(false);
@@ -46,8 +50,9 @@ export function ShareButton({ payload }: ShareButtonProps) {
 
     await navigator.clipboard.writeText(shareUrl);
     setCopyStatus('copied');
+    trackEvent(AnalyticsEvents.shareCopy, { type: payload.type });
     window.setTimeout(() => setCopyStatus('idle'), 2000);
-  }, [shareUrl]);
+  }, [payload.type, shareUrl]);
 
   const label = isLoading ? t('sharing') : hasError ? t('error') : t('share');
 

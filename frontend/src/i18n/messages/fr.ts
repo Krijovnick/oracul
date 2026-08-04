@@ -97,6 +97,11 @@ const fr: Messages = {
     disclaimer: 'À titre de divertissement uniquement. Ne remplace pas un avis professionnel.',
     copyright: '© {year} Votre Oracle Personnel',
   },
+  cookieConsent: {
+    message:
+      'Nous utilisons des cookies et des technologies similaires pour l’analyse et le suivi des erreurs afin d’améliorer le site. En continuant, vous acceptez cela.',
+    accept: 'OK',
+  },
   notFound: {
     title: 'Page introuvable',
     description: 'La page que vous recherchez n\'existe pas ou a été déplacée.',

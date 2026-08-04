@@ -7,6 +7,7 @@ import { LocaleHydration } from '@/i18n/LocaleHydration';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import type { Locale } from '@/i18n/locales';
+import { AnalyticsProvider } from '@/shared/lib/analytics';
 import '../globals.css';
 
 const geistSans = Geist({
@@ -52,8 +53,10 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
     >
       <body className="min-h-full bg-black text-white">
         <NextIntlClientProvider messages={messages}>
-          <LocaleHydration />
-          {children}
+          <AnalyticsProvider>
+            <LocaleHydration />
+            {children}
+          </AnalyticsProvider>
         </NextIntlClientProvider>
       </body>
     </html>

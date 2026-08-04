@@ -105,6 +105,10 @@ export interface Messages {
     disclaimer: string;
     copyright: string;
   };
+  cookieConsent: {
+    message: string;
+    accept: string;
+  };
   notFound: {
     title: string;
     description: string;

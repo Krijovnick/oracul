@@ -40,6 +40,8 @@ const siteUrl = withProtocol(
     'http://localhost:3001',
 );
 const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim();
+const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim();
+const hawkToken = process.env.NEXT_PUBLIC_HAWK_TOKEN?.trim();
 
 const nextConfig: NextConfig = {
   env: {
@@ -47,6 +49,8 @@ const nextConfig: NextConfig = {
     NEXT_PUBLIC_SITE_URL: siteUrl,
     BACKEND_URL: backendUrl,
     ...(contactEmail ? { NEXT_PUBLIC_CONTACT_EMAIL: contactEmail } : {}),
+    ...(gaMeasurementId ? { NEXT_PUBLIC_GA_MEASUREMENT_ID: gaMeasurementId } : {}),
+    ...(hawkToken ? { NEXT_PUBLIC_HAWK_TOKEN: hawkToken } : {}),
   },
   async rewrites() {
     return [

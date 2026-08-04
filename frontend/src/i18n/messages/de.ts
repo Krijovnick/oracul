@@ -97,6 +97,11 @@ const de: Messages = {
     disclaimer: 'Nur zu Unterhaltungszwecken. Kein Ersatz für professionelle Beratung.',
     copyright: '© {year} Ihr Persönliches Orakel',
   },
+  cookieConsent: {
+    message:
+      'Wir verwenden Cookies und ähnliche Technologien für Analyse und Fehlerüberwachung, um die Website zu verbessern. Mit dem Fortfahren stimmen Sie dem zu.',
+    accept: 'OK',
+  },
   notFound: {
     title: 'Seite nicht gefunden',
     description: 'Die gesuchte Seite existiert nicht oder wurde verschoben.',

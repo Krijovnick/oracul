@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
+import { AnalyticsEvents, trackEvent } from '@/shared/lib/analytics';
 
 const revealVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -21,6 +22,7 @@ export function HomeSections() {
       imageAlt: t('tarotImageAlt'),
       href: '/tarot',
       buttonLabel: t('tarotButton'),
+      event: AnalyticsEvents.homeTarotCta,
     },
     {
       title: t('dreamsTitle'),
@@ -29,6 +31,7 @@ export function HomeSections() {
       imageAlt: t('dreamsImageAlt'),
       href: '/dreams',
       buttonLabel: t('dreamsButton'),
+      event: AnalyticsEvents.homeDreamsCta,
     },
   ] as const;
 
@@ -70,7 +73,11 @@ export function HomeSections() {
                 >
                   <h2 className="gold-title mb-4 text-3xl sm:text-4xl">{section.title}</h2>
                   <p className="oracle-subtitle mb-8 max-w-md">{section.description}</p>
-                  <Link href={section.href} className="gold-button">
+                  <Link
+                    href={section.href}
+                    className="gold-button"
+                    onClick={() => trackEvent(section.event)}
+                  >
                     {section.buttonLabel}
                   </Link>
                 </div>

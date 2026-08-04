@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react';
 import type { HistoryEntry } from '@/shared/model/history';
+import { AnalyticsEvents, trackEvent } from '@/shared/lib/analytics';
 import {
   clearHistory,
   deleteHistoryEntry,
@@ -33,11 +34,13 @@ export function useReadingHistory() {
   const removeEntry = useCallback((id: string) => {
     deleteHistoryEntry(id);
     setEntries(getHistoryEntries());
+    trackEvent(AnalyticsEvents.historyDelete);
   }, []);
 
   const removeAll = useCallback(() => {
     clearHistory();
     setEntries([]);
+    trackEvent(AnalyticsEvents.historyClearAll);
   }, []);
 
   return {

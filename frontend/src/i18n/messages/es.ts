@@ -97,6 +97,11 @@ const es: Messages = {
     disclaimer: 'Solo con fines de entretenimiento. No sustituye el asesoramiento profesional.',
     copyright: '© {year} Tu Oráculo Personal',
   },
+  cookieConsent: {
+    message:
+      'Usamos cookies y tecnologías similares para analítica y monitoreo de errores, y así mejorar el sitio. Al continuar, aceptas esto.',
+    accept: 'OK',
+  },
   notFound: {
     title: 'Página no encontrada',
     description: 'La página que buscas no existe o ha sido movida.',

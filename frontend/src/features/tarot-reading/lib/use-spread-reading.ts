@@ -5,6 +5,7 @@ import { useAppMessages } from '@/i18n/use-app-messages';
 import { drawMultipleCards } from '@/entities/tarot-card/lib/draw-card';
 import type { PositionedCard } from '@/entities/tarot-card/model/types';
 import type { Spread } from '@/shared/config/spreads';
+import { AnalyticsEvents, trackError, trackEvent } from '@/shared/lib/analytics';
 import { saveHistoryEntry } from '@/shared/lib/history-storage';
 import { interpretReading } from '../api/interpret-reading';
 
@@ -52,6 +53,8 @@ export function useSpreadReading(spread: Spread) {
 
   const handleDraw = useCallback(async () => {
     if (!canDraw) return;
+
+    trackEvent(AnalyticsEvents.tarotDraw, { spreadId: spread.id });
 
     abortRef.current?.abort();
     const controller = new AbortController();
@@ -109,21 +112,25 @@ export function useSpreadReading(spread: Spread) {
 
       setInterpretation(result.interpretation);
       setPhase('result');
+      trackEvent(AnalyticsEvents.tarotSuccess, { spreadId: spread.id });
     } catch (err) {
       if (controller.signal.aborted) return;
       setError(err instanceof Error ? err.message : t('genericError'));
       setPhase('error');
+      trackEvent(AnalyticsEvents.tarotError, { spreadId: spread.id });
+      trackError(err, { source: 'tarot_reading', spreadId: spread.id });
     }
   }, [canDraw, question, spread, isMultiCard, messages, locale, t]);
 
   const handleReset = useCallback(() => {
     abortRef.current?.abort();
+    trackEvent(AnalyticsEvents.tarotReset, { spreadId: spread.id });
     setQuestion('');
     setDrawnCards([]);
     setInterpretation('');
     setError('');
     setPhase('idle');
-  }, []);
+  }, [spread.id]);
 
   return {
     question,
