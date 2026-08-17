@@ -1,5 +1,6 @@
 import { getMessages } from '@/i18n/messages';
 import type { Locale } from '@/i18n/locales';
+import type { PageSeo } from '@/i18n/seo';
 import { getSiteUrl } from '@/shared/config/site';
 import { buildPageMetadata, type PageMetadataInput } from './metadata';
 
@@ -15,5 +16,20 @@ export async function createPageMetadata(input: CreatePageMetadataInput) {
     ...input,
     siteName: messages.metadata.title,
     origin,
+  });
+}
+
+export async function createSeoPageMetadata(
+  input: Omit<CreatePageMetadataInput, 'title' | 'description' | 'keywords'> & {
+    page: PageSeo;
+  },
+) {
+  const { page, ...rest } = input;
+
+  return createPageMetadata({
+    ...rest,
+    title: page.title,
+    description: page.description,
+    keywords: page.queries,
   });
 }

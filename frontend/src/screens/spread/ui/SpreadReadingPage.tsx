@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from 'motion/react';
 import { useLocale, useTranslations } from 'next-intl';
 import type { Locale } from '@/i18n/locales';
+import { getSpreadSeo } from '@/i18n/seo';
 import { CardDeck } from '@/entities/tarot-card';
 import { OracleLayout } from '@/widgets/oracle-layout';
 import { PageTitle } from '@/shared/ui/page-title';
@@ -40,7 +41,7 @@ export function SpreadReadingPage({ spread }: SpreadReadingPageProps) {
   return (
     <OracleLayout>
       <div className="mx-auto flex max-w-4xl flex-col items-center px-6 py-16 md:py-24">
-        <PageTitle>{spread.title}</PageTitle>
+        <PageTitle>{getSpreadSeo(locale, spread.id).h1}</PageTitle>
 
         <SpreadAbout paragraphs={spread.about} />
 

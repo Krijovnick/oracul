@@ -6,7 +6,7 @@ import { cardNames, ranks, suits } from './content/cards.en';
 const en: Messages = {
   metadata: {
     title: 'Your Personal Oracle',
-    description: 'Online tarot card readings and dream interpretation',
+    description: 'Free online tarot reading and dream interpretation',
   },
   nav: {
     home: 'Home',
@@ -34,16 +34,16 @@ const en: Messages = {
   home: {
     title: 'Your Personal Oracle',
     subtitle:
-      'Unlock the mysteries of fate through the ancient art of Tarot and the wisdom of dreams. Personal readings await you.',
+      'Free online tarot readings and dream interpretation. Choose a spread, draw the cards, or decode a dream — personal guidance in a few clicks.',
     heroAlt: 'Mystical oracle',
     tarotTitle: 'Tarot',
     tarotDescription:
-      'The ancient art of card divination. Choose a spread, ask your question, and receive a personal reading from the oracle.',
+      'Free online tarot card readings. Choose a spread — Celtic Cross, three cards, yes or no, card of the day — ask your question and receive a personal interpretation.',
     tarotImageAlt: 'Tarot spread',
     tarotButton: 'Go to Tarot',
     dreamsTitle: 'Dreams',
     dreamsDescription:
-      'Decode the messages of your subconscious. Discover the meaning of symbols and images that come to you in sleep.',
+      'Free dream interpretation online. Open a dream dictionary — Freud, Jung, Miller and others — and discover what your dream symbols mean.',
     dreamsImageAlt: 'Dream dictionary — dream interpretation',
     dreamsButton: 'Go to Dreams',
   },
@@ -54,7 +54,7 @@ const en: Messages = {
   dreams: {
     dictionariesTitle: 'Dream Dictionaries',
     dictionariesIntro:
-      'Choose the dream dictionary whose symbolism best fits your question. Each tradition reads dream images in its own way.',
+      'Choose a dream dictionary and interpret your dream online. Freud, Jung, Miller, Vanga and other traditions each read symbols in their own way.',
     interpret: 'Interpret',
     dictionaryPageTitle: '{title} Dream Dictionary',
     interpretDream: 'Interpret dream',

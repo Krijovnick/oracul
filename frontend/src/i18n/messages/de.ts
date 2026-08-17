@@ -6,7 +6,7 @@ import { cardNames, ranks, suits } from './content/cards.de';
 const de: Messages = {
   metadata: {
     title: 'Ihr Persönliches Orakel',
-    description: 'Online-Tarotlegungen und Traumdeutung',
+    description: 'Tarotkarten legen online kostenlos und Traumdeutung',
   },
   nav: {
     home: 'Startseite',
@@ -34,16 +34,16 @@ const de: Messages = {
   home: {
     title: 'Ihr Persönliches Orakel',
     subtitle:
-      'Entdecken Sie die Geheimnisse des Schicksals durch die alte Kunst des Tarot und die Weisheit der Träume. Persönliche Deutungen erwarten Sie.',
+      'Tarotkarten legen online kostenlos und Träume deuten. Wählen Sie eine Legung, ziehen Sie die Karten oder nutzen Sie das Traumlexikon — persönliche Deutung in wenigen Klicks.',
     heroAlt: 'Mystisches Orakel',
     tarotTitle: 'Tarot',
     tarotDescription:
-      'Die alte Kunst der Kartenwahrsagung. Wählen Sie eine Legung, stellen Sie Ihre Frage und erhalten Sie eine persönliche Deutung vom Orakel.',
+      'Tarotkarten legen online kostenlos. Wählen Sie eine Legung — Keltisches Kreuz, Drei Karten, Ja/Nein, Tageskarte — stellen Sie Ihre Frage und erhalten Sie eine persönliche Deutung.',
     tarotImageAlt: 'Tarot-Legung',
     tarotButton: 'Zum Tarot',
     dreamsTitle: 'Träume',
     dreamsDescription:
-      'Entschlüsseln Sie die Botschaften Ihres Unterbewusstseins. Erfahren Sie die Bedeutung von Symbolen und Bildern, die Ihnen im Schlaf erscheinen.',
+      'Kostenlose Traumdeutung online. Öffnen Sie ein Traumlexikon — Freud, Jung, Miller und andere — und erfahren Sie, was Ihre Traumsymbole bedeuten.',
     dreamsImageAlt: 'Traumlexikon — Traumdeutung',
     dreamsButton: 'Zu den Träumen',
   },
@@ -54,7 +54,7 @@ const de: Messages = {
   dreams: {
     dictionariesTitle: 'Traumlexika',
     dictionariesIntro:
-      'Wählen Sie das Traumlexikon, dessen Symbolik am besten zu Ihrer Frage passt. Jede Tradition liest Traumbilder auf ihre Weise.',
+      'Wählen Sie ein Traumlexikon und deuten Sie Ihren Traum online. Freud, Jung, Miller, Wanga und andere Traditionen lesen Symbole auf je eigene Weise.',
     interpret: 'Deuten',
     dictionaryPageTitle: 'Traumlexikon {title}',
     interpretDream: 'Traum deuten',

@@ -1,5 +1,5 @@
 export { buildPageMetadata, type PageMetadataInput } from './metadata';
-export { createPageMetadata } from './page-metadata';
+export { createPageMetadata, createSeoPageMetadata } from './page-metadata';
 export {
   buildBreadcrumbJsonLd,
   buildWebApplicationJsonLd,

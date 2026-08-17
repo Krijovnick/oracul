@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 import { getMessages } from '@/i18n/messages';
 import type { Locale } from '@/i18n/locales';
+import { getSeo } from '@/i18n/seo';
 import { getSiteUrl } from '@/shared/config/site';
 import { routes } from '@/shared/config/routes';
 import {
   buildBreadcrumbJsonLd,
   buildWebPageJsonLd,
-  createPageMetadata,
+  createSeoPageMetadata,
 } from '@/shared/lib/seo';
 import { JsonLd } from '@/shared/ui/json-ld';
 import { DreamsPage } from '@/screens/dreams';
@@ -17,13 +18,12 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
-  const messages = getMessages(locale as Locale);
+  const seo = getSeo(locale as Locale);
 
-  return createPageMetadata({
+  return createSeoPageMetadata({
     locale: locale as Locale,
     path: routes.dreams,
-    title: `${messages.dreams.dictionariesTitle} | ${messages.metadata.title}`,
-    description: messages.home.dreamsDescription,
+    page: seo.dreams,
     image: '/images/home-dreams.png',
   });
 }
@@ -32,9 +32,8 @@ export default async function Page({ params }: PageProps) {
   const { locale } = await params;
   const typedLocale = locale as Locale;
   const messages = getMessages(typedLocale);
+  const seo = getSeo(typedLocale);
   const origin = await getSiteUrl();
-  const title = messages.dreams.dictionariesTitle;
-  const description = messages.home.dreamsDescription;
 
   return (
     <>
@@ -42,8 +41,8 @@ export default async function Page({ params }: PageProps) {
         data={[
           buildWebPageJsonLd({
             locale: typedLocale,
-            name: title,
-            description,
+            name: seo.dreams.h1,
+            description: seo.dreams.description,
             path: routes.dreams,
             siteName: messages.metadata.title,
             origin,
@@ -52,7 +51,7 @@ export default async function Page({ params }: PageProps) {
           buildBreadcrumbJsonLd(
             [
               { name: messages.nav.home, path: routes.home },
-              { name: title, path: routes.dreams },
+              { name: seo.dreams.h1, path: routes.dreams },
             ],
             typedLocale,
             origin,

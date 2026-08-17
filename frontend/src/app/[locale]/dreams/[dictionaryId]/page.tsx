@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getMessages } from '@/i18n/messages';
 import type { Locale } from '@/i18n/locales';
+import { getDreamDictionarySeo } from '@/i18n/seo';
 import { routing } from '@/i18n/routing';
 import {
   dreamDictionaryIds,
@@ -12,7 +13,7 @@ import { dreamDictionaryRoute, routes } from '@/shared/config/routes';
 import {
   buildBreadcrumbJsonLd,
   buildWebPageJsonLd,
-  createPageMetadata,
+  createSeoPageMetadata,
 } from '@/shared/lib/seo';
 import { JsonLd } from '@/shared/ui/json-ld';
 import { DreamInterpretationPage } from '@/screens/dreams';
@@ -36,11 +37,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return { title: 'Not found', robots: { index: false, follow: true } };
   }
 
-  return createPageMetadata({
+  return createSeoPageMetadata({
     locale: locale as Locale,
     path: dreamDictionaryRoute(dictionaryId),
-    title: `${dictionary.title} | ${messages.metadata.title}`,
-    description: dictionary.description,
+    page: getDreamDictionarySeo(locale as Locale, dictionary.id),
     image: '/images/home-dreams.png',
   });
 }
@@ -54,6 +54,7 @@ export default async function Page({ params }: PageProps) {
 
   const origin = await getSiteUrl();
   const path = dreamDictionaryRoute(dictionaryId);
+  const pageSeo = getDreamDictionarySeo(typedLocale, dictionary.id);
 
   return (
     <>
@@ -61,8 +62,8 @@ export default async function Page({ params }: PageProps) {
         data={[
           buildWebPageJsonLd({
             locale: typedLocale,
-            name: dictionary.title,
-            description: dictionary.description,
+            name: pageSeo.h1,
+            description: pageSeo.description,
             path,
             siteName: messages.metadata.title,
             origin,

@@ -6,7 +6,7 @@ import { cardNames, ranks, suits } from './content/cards.fr';
 const fr: Messages = {
   metadata: {
     title: 'Votre Oracle Personnel',
-    description: 'Tirages de Tarot en ligne et interprétation des rêves',
+    description: 'Tirage de tarot gratuit en ligne et interprétation des rêves',
   },
   nav: {
     home: 'Accueil',
@@ -34,16 +34,16 @@ const fr: Messages = {
   home: {
     title: 'Votre Oracle Personnel',
     subtitle:
-      'Découvrez les mystères du destin à travers l\'art ancien du Tarot et la sagesse des rêves. Des lectures personnalisées vous attendent.',
+      'Tirage de tarot gratuit en ligne et interprétation des rêves. Choisissez un tirage, piochez les cartes ou décodez un rêve — une guidance personnelle en quelques clics.',
     heroAlt: 'Oracle mystique',
     tarotTitle: 'Tarot',
     tarotDescription:
-      'L\'art ancien de la divination par les cartes. Choisissez un tirage, posez votre question et recevez une interprétation personnelle de l\'oracle.',
+      'Tirage de tarot gratuit en ligne. Choisissez un tirage — croix celtique, trois cartes, oui ou non, carte du jour — posez votre question et recevez une interprétation personnelle.',
     tarotImageAlt: 'Tirage de Tarot',
     tarotButton: 'Aller au Tarot',
     dreamsTitle: 'Rêves',
     dreamsDescription:
-      'Déchiffrez les messages de votre subconscient. Découvrez la signification des symboles et des images qui vous viennent en songe.',
+      'Interprétation des rêves gratuite en ligne. Ouvrez un dictionnaire des rêves — Freud, Jung, Miller et d\'autres — et découvrez ce que signifient vos symboles oniriques.',
     dreamsImageAlt: 'Dictionnaire des rêves — interprétation',
     dreamsButton: 'Aller aux Rêves',
   },
@@ -54,7 +54,7 @@ const fr: Messages = {
   dreams: {
     dictionariesTitle: 'Dictionnaires des rêves',
     dictionariesIntro:
-      'Choisissez le dictionnaire dont la symbolique correspond le mieux à votre question. Chaque tradition lit les images oniriques à sa manière.',
+      'Choisissez un dictionnaire des rêves et interprétez votre rêve en ligne. Freud, Jung, Miller, Vanga et d\'autres traditions lisent les symboles chacun à leur manière.',
     interpret: 'Interpréter',
     dictionaryPageTitle: 'Dictionnaire des rêves {title}',
     interpretDream: 'Interpréter le rêve',

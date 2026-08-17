@@ -1,18 +1,21 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { useLocale } from 'next-intl';
 import { SpreadCard } from '@/entities/spread';
 import { getSpreads } from '@/shared/config/spreads';
 import { useAppMessages } from '@/i18n/use-app-messages';
+import type { Locale } from '@/i18n/locales';
+import { getSeo } from '@/i18n/seo';
 
 export function SpreadsList() {
-  const t = useTranslations('tarot');
+  const locale = useLocale() as Locale;
   const messages = useAppMessages();
   const spreads = getSpreads(messages);
+  const seo = getSeo(locale);
 
   return (
     <section className="mx-auto max-w-7xl px-6 pb-24 pt-4 md:px-14">
-      <h1 className="gold-title mb-12 text-center text-3xl sm:text-4xl">{t('spreadsTitle')}</h1>
+      <h1 className="gold-title mb-12 text-center text-3xl sm:text-4xl">{seo.tarot.h1}</h1>
 
       <ul className="grid list-none gap-16 sm:grid-cols-2 lg:grid-cols-3 sm:gap-12">
         {spreads.map((spread) => (

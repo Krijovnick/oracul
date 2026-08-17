@@ -40,6 +40,7 @@ export interface PageMetadataInput {
   title: string;
   description: string;
   siteName: string;
+  keywords?: string[];
   image?: string;
   robots?: Metadata['robots'];
   origin?: string;
@@ -53,6 +54,7 @@ export function buildPageMetadata({
   title,
   description,
   siteName,
+  keywords,
   image = defaultOgImage,
   robots,
   origin,
@@ -68,6 +70,7 @@ export function buildPageMetadata({
   return {
     title,
     description,
+    ...(keywords?.length ? { keywords } : {}),
     robots,
     alternates: includeAlternates
       ? {

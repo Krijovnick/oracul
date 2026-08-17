@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getMessages } from '@/i18n/messages';
 import type { Locale } from '@/i18n/locales';
+import { getSpreadSeo } from '@/i18n/seo';
 import { routing } from '@/i18n/routing';
 import { getSpreadById, spreadIds } from '@/shared/config/spreads';
 import { getSiteUrl } from '@/shared/config/site';
@@ -9,7 +10,7 @@ import { routes, spreadRoute } from '@/shared/config/routes';
 import {
   buildBreadcrumbJsonLd,
   buildWebPageJsonLd,
-  createPageMetadata,
+  createSeoPageMetadata,
 } from '@/shared/lib/seo';
 import { JsonLd } from '@/shared/ui/json-ld';
 import { SpreadReadingPage } from '@/screens/spread';
@@ -33,11 +34,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return { title: 'Not found', robots: { index: false, follow: true } };
   }
 
-  return createPageMetadata({
+  return createSeoPageMetadata({
     locale: locale as Locale,
     path: spreadRoute(spreadId),
-    title: `${spread.title} | ${messages.metadata.title}`,
-    description: spread.description,
+    page: getSpreadSeo(locale as Locale, spread.id),
     image: spread.imageSrc,
   });
 }
@@ -51,6 +51,7 @@ export default async function Page({ params }: PageProps) {
 
   const origin = await getSiteUrl();
   const path = spreadRoute(spreadId);
+  const pageSeo = getSpreadSeo(typedLocale, spread.id);
 
   return (
     <>
@@ -58,8 +59,8 @@ export default async function Page({ params }: PageProps) {
         data={[
           buildWebPageJsonLd({
             locale: typedLocale,
-            name: spread.title,
-            description: spread.description,
+            name: pageSeo.h1,
+            description: pageSeo.description,
             path,
             siteName: messages.metadata.title,
             origin,

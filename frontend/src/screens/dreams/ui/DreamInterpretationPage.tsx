@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from 'motion/react';
 import { useLocale, useTranslations } from 'next-intl';
 import type { Locale } from '@/i18n/locales';
+import { getDreamDictionarySeo } from '@/i18n/seo';
 import { OracleLayout } from '@/widgets/oracle-layout';
 import { PageTitle } from '@/shared/ui/page-title';
 import { InterpretationPanel } from '@/shared/ui/interpretation-panel';
@@ -36,7 +37,7 @@ export function DreamInterpretationPage({ dictionary }: DreamInterpretationPageP
   return (
     <OracleLayout>
       <div className="mx-auto flex max-w-4xl flex-col items-center px-6 py-16 md:py-24">
-        <PageTitle>{t('dictionaryPageTitle', { title: dictionary.title })}</PageTitle>
+        <PageTitle>{getDreamDictionarySeo(locale, dictionary.id).h1}</PageTitle>
 
         <DictionaryAbout dictionary={dictionary} />
 

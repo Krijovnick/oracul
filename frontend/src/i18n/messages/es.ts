@@ -6,7 +6,7 @@ import { cardNames, ranks, suits } from './content/cards.es';
 const es: Messages = {
   metadata: {
     title: 'Tu Oráculo Personal',
-    description: 'Lecturas de Tarot online e interpretación de sueños',
+    description: 'Tirada de tarot gratis online e interpretación de sueños',
   },
   nav: {
     home: 'Inicio',
@@ -34,16 +34,16 @@ const es: Messages = {
   home: {
     title: 'Tu Oráculo Personal',
     subtitle:
-      'Descubre los misterios del destino a través del antiguo arte del Tarot y la sabiduría de los sueños. Te esperan lecturas personalizadas.',
+      'Tirada de tarot gratis online e interpretación de sueños. Elige una tirada, saca las cartas o descifra un sueño — orientación personal en unos clics.',
     heroAlt: 'Oráculo místico',
     tarotTitle: 'Tarot',
     tarotDescription:
-      'El antiguo arte de la adivinación con cartas. Elige una tirada, formula tu pregunta y recibe una interpretación personal del oráculo.',
+      'Tirada de tarot gratis online. Elige una tirada — cruz celta, tres cartas, sí o no, carta del día — formula tu pregunta y recibe una lectura personal.',
     tarotImageAlt: 'Tirada de Tarot',
     tarotButton: 'Ir al Tarot',
     dreamsTitle: 'Sueños',
     dreamsDescription:
-      'Descifra los mensajes de tu subconsciente. Descubre el significado de los símbolos e imágenes que te visitan en el sueño.',
+      'Interpretación de sueños gratis online. Abre un diccionario de sueños — Freud, Jung, Miller y otros — y descubre qué significan los símbolos de tu sueño.',
     dreamsImageAlt: 'Diccionario de sueños — interpretación',
     dreamsButton: 'Ir a Sueños',
   },
@@ -54,7 +54,7 @@ const es: Messages = {
   dreams: {
     dictionariesTitle: 'Diccionarios de sueños',
     dictionariesIntro:
-      'Elige el diccionario cuya simbología se ajuste mejor a tu pregunta. Cada tradición interpreta las imágenes oníricas a su manera.',
+      'Elige un diccionario de sueños e interpreta tu sueño online. Freud, Jung, Miller, Vanga y otras tradiciones leen los símbolos cada una a su manera.',
     interpret: 'Interpretar',
     dictionaryPageTitle: 'Diccionario de sueños {title}',
     interpretDream: 'Interpretar sueño',
