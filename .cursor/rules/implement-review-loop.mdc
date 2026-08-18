@@ -1,0 +1,19 @@
+---
+description: Auto-run coder then reviewer on every implementation task
+alwaysApply: true
+---
+
+# Coder + reviewer loop
+
+When the user asks to implement, add, fix, change, refactor, or otherwise modify code, do not write the code yourself. Orchestrate `coder` and `reviewer`.
+
+Skip this loop for questions, explanations, git/PR-only requests, and when the user says not to use subagents.
+
+## Loop
+
+1. Launch `coder` with the full user task, paths, and constraints. Capture its agent id.
+2. Launch `reviewer` with the original task plus the coder handoff. Ask it to inspect the real files/diff.
+3. If verdict is `CHANGES_REQUESTED`, resume `coder` with the `## Fixes` list only. Repeat from step 2.
+4. Stop when `APPROVED`, after 3 review rounds, or if the same findings repeat.
+
+Then summarize for the user: what shipped, review verdict, and any leftover non-blocking notes.
