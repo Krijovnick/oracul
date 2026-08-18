@@ -24,14 +24,10 @@ export function AnalyticsProvider({ children }: AnalyticsProviderProps) {
 
   return (
     <>
-      {allowed ? (
-        <>
-          <Suspense fallback={null}>
-            <GoogleAnalytics />
-          </Suspense>
-          <HawkInit />
-        </>
-      ) : null}
+      <Suspense fallback={null}>
+        <GoogleAnalytics />
+      </Suspense>
+      {allowed ? <HawkInit /> : null}
       <CookieConsentBanner />
       {children}
     </>

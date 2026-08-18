@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import { Cormorant_Garamond, Geist, Geist_Mono } from 'next/font/google';
 import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
@@ -8,6 +7,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import type { Locale } from '@/i18n/locales';
 import { AnalyticsProvider } from '@/shared/lib/analytics';
+import { GoogleTag } from '@/shared/lib/analytics/GoogleTag';
 import '../globals.css';
 
 const geistSans = Geist({
@@ -51,6 +51,9 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
       className={`${geistSans.variable} ${geistMono.variable} ${displayFont.variable} h-full antialiased`}
       suppressHydrationWarning
     >
+      <head>
+        <GoogleTag />
+      </head>
       <body className="min-h-full bg-black text-white">
         <NextIntlClientProvider messages={messages}>
           <AnalyticsProvider>

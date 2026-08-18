@@ -10,13 +10,29 @@ declare global {
   }
 }
 
+function getGtagClient(): NonNullable<Window['gtag']> | null {
+  if (typeof window === 'undefined') return null;
+  if (typeof window.gtag === 'function') return window.gtag;
+
+  const dataLayer = window.dataLayer;
+  if (!Array.isArray(dataLayer)) return null;
+
+  // Head snippet may have created dataLayer before gtag.js replaced the stub.
+  return function gtag() {
+    // Official gtag stub pushes the Arguments object.
+    // eslint-disable-next-line prefer-rest-params
+    dataLayer.push(arguments);
+  };
+}
+
 function withGtag(callback: (gtag: NonNullable<Window['gtag']>, id: string) => void) {
   if (typeof window === 'undefined') return;
 
   const id = getGaMeasurementId();
-  if (!id || typeof window.gtag !== 'function') return;
+  const gtag = getGtagClient();
+  if (!id || !gtag) return;
 
-  callback(window.gtag, id);
+  callback(gtag, id);
 }
 
 export function gaPageView(url: string, title?: string) {
@@ -31,5 +47,13 @@ export function gaPageView(url: string, title?: string) {
 export function gaEvent(event: AnalyticsEvent, params?: GtagParams) {
   withGtag((gtag) => {
     gtag('event', event, params);
+  });
+}
+
+export function gaGrantAnalyticsConsent() {
+  withGtag((gtag) => {
+    gtag('consent', 'update', {
+      analytics_storage: 'granted',
+    });
   });
 }
