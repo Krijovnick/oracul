@@ -5,6 +5,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import type { Locale } from '@/i18n/locales';
 import { getShareUrl } from '@/shared/config/site';
 import { AnalyticsEvents, trackError, trackEvent } from '@/shared/lib/analytics';
+import { isNetworkError } from '@/shared/lib/http/is-network-error';
 import { createShare } from '../api/share-reading';
 import type { CreateSharePayload } from '../model/types';
 
@@ -17,12 +18,12 @@ export function ShareButton({ payload }: ShareButtonProps) {
   const t = useTranslations('share');
   const [shareUrl, setShareUrl] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [hasError, setHasError] = useState(false);
+  const [errorKind, setErrorKind] = useState<'generic' | 'network' | null>(null);
   const [copyStatus, setCopyStatus] = useState<'idle' | 'copied'>('idle');
 
   const handleOpen = useCallback(async () => {
     setIsLoading(true);
-    setHasError(false);
+    setErrorKind(null);
     trackEvent(AnalyticsEvents.shareOpen, { type: payload.type });
 
     try {
@@ -31,10 +32,15 @@ export function ShareButton({ payload }: ShareButtonProps) {
       setShareUrl(getShareUrl(id, locale, publicOrigin || window.location.origin));
       setCopyStatus('idle');
     } catch (error) {
-      setHasError(true);
-      trackEvent(AnalyticsEvents.shareError, { type: payload.type });
-      trackError(error, { source: 'share', type: payload.type });
-      window.setTimeout(() => setHasError(false), 2500);
+      if (isNetworkError(error)) {
+        setErrorKind('network');
+        trackEvent(AnalyticsEvents.shareNetworkError, { type: payload.type });
+      } else {
+        setErrorKind('generic');
+        trackEvent(AnalyticsEvents.shareError, { type: payload.type });
+        trackError(error, { source: 'share', type: payload.type });
+      }
+      window.setTimeout(() => setErrorKind(null), 2500);
     } finally {
       setIsLoading(false);
     }
@@ -54,7 +60,13 @@ export function ShareButton({ payload }: ShareButtonProps) {
     window.setTimeout(() => setCopyStatus('idle'), 2000);
   }, [payload.type, shareUrl]);
 
-  const label = isLoading ? t('sharing') : hasError ? t('error') : t('share');
+  const label = isLoading
+    ? t('sharing')
+    : errorKind === 'network'
+      ? t('networkError')
+      : errorKind === 'generic'
+        ? t('error')
+        : t('share');
 
   return (
     <>

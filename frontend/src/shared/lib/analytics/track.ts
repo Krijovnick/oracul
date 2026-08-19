@@ -29,10 +29,11 @@ export function trackError(
         ? error
         : 'Unknown error';
 
+  const { source, ...rest } = context ?? {};
   const params = {
-    message: message.slice(0, 200),
-    source: context?.source ?? 'unknown',
-    ...context,
+    error_message: message.slice(0, 200),
+    error_source: source ?? 'unknown',
+    ...rest,
   };
 
   gaEvent(AnalyticsEvents.jsError, params);

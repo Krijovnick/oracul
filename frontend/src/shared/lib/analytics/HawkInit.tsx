@@ -21,9 +21,12 @@ function reportJsErrorToGa(
         ? error
         : 'Unknown error';
 
+  const { source, ...rest } = context;
+
   gaEvent(AnalyticsEvents.jsError, {
-    message: message.slice(0, 200),
-    ...context,
+    error_message: message.slice(0, 200),
+    error_source: typeof source === 'string' ? source : 'unknown',
+    ...rest,
   });
 }
 

@@ -91,6 +91,7 @@ export interface Messages {
     positionFallback: string;
     genericError: string;
     apiError: string;
+    networkError: string;
     placeholder: string;
     underDevelopment: string;
   };
@@ -100,6 +101,7 @@ export interface Messages {
     copy: string;
     copied: string;
     error: string;
+    networkError: string;
     tarotFallbackTitle: string;
     dreamFallbackTitle: string;
   };

@@ -4,6 +4,7 @@ import type { Locale } from '@/i18n/locales';
 import type { DreamDictionary } from '@/shared/config/dream-dictionaries';
 import { AnalyticsEvents, trackError, trackEvent } from '@/shared/lib/analytics';
 import { saveHistoryEntry } from '@/shared/lib/history-storage';
+import { isNetworkError } from '@/shared/lib/http/is-network-error';
 import { interpretDream } from '../api/interpret-dream';
 
 export type DreamPhase = 'idle' | 'loading' | 'result' | 'error';
@@ -68,6 +69,12 @@ export function useDreamInterpretation(dictionary: DreamDictionary) {
       trackEvent(AnalyticsEvents.dreamSuccess, { dictionaryId: dictionary.id });
     } catch (err) {
       if (controller.signal.aborted) return;
+      if (isNetworkError(err)) {
+        setError(t('networkError'));
+        setPhase('error');
+        trackEvent(AnalyticsEvents.dreamNetworkError, { dictionaryId: dictionary.id });
+        return;
+      }
       setError(err instanceof Error ? err.message : t('genericError'));
       setPhase('error');
       trackEvent(AnalyticsEvents.dreamError, { dictionaryId: dictionary.id });

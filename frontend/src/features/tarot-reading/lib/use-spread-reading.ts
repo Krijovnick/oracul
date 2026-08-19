@@ -7,6 +7,7 @@ import type { PositionedCard } from '@/entities/tarot-card/model/types';
 import type { Spread } from '@/shared/config/spreads';
 import { AnalyticsEvents, trackError, trackEvent } from '@/shared/lib/analytics';
 import { saveHistoryEntry } from '@/shared/lib/history-storage';
+import { isNetworkError } from '@/shared/lib/http/is-network-error';
 import { interpretReading } from '../api/interpret-reading';
 
 export type ReadingPhase = 'idle' | 'drawing' | 'revealing' | 'loading' | 'result' | 'error';
@@ -115,6 +116,12 @@ export function useSpreadReading(spread: Spread) {
       trackEvent(AnalyticsEvents.tarotSuccess, { spreadId: spread.id });
     } catch (err) {
       if (controller.signal.aborted) return;
+      if (isNetworkError(err)) {
+        setError(t('networkError'));
+        setPhase('error');
+        trackEvent(AnalyticsEvents.tarotNetworkError, { spreadId: spread.id });
+        return;
+      }
       setError(err instanceof Error ? err.message : t('genericError'));
       setPhase('error');
       trackEvent(AnalyticsEvents.tarotError, { spreadId: spread.id });
